@@ -1,6 +1,6 @@
 import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import { useAuth } from "../../context/AuthContext";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import Counter from "../Counter/Counter";
 import UserDataForm from "../UserDataForm/UserDataForm";
 import TextEditor from "../TextEditor/TextEditor";
@@ -8,33 +8,31 @@ import styles from "./Dashboard.module.css";
 import LoginScreen from "../Screen/LoginScreen";
 
 const Dashboard = () => {
-  const { isUserAuthenticated } = useAuth();
+  const contexState = useContext(AuthContext);
 
-  const { isAuthenticated } = useAuth0();
-  console.log("isUserAuthenticated : => ", isAuthenticated);
+  // console.log("context state ", contexState);
 
+ 
+
+  if (!contexState.isUserAuthenticated) {
+    return <LoginScreen />;
+  }
   return (
-    <>
-      {isUserAuthenticated ? (
-        <div className={styles.dashboardcontainer}>
-          <div className={styles.upperDiv}>
-            <div className={styles.leftpanel}>
-              <Counter />
-            </div>
-            <div className={styles.rightpanel}>
-              <UserDataForm />
-            </div>
-          </div>
-          <div className={styles.lowerDiv}>
-            <div className={styles.editorcontainer}>
-              <TextEditor />
-            </div>
-          </div>
+    <div className={styles.dashboardcontainer}>
+      <div className={styles.upperDiv}>
+        <div className={styles.leftpanel}>
+          <Counter />
         </div>
-      ) : (
-        <LoginScreen />
-      )}
-    </>
+        <div className={styles.rightpanel}>
+          <UserDataForm />
+        </div>
+      </div>
+      <div className={styles.lowerDiv}>
+        <div className={styles.editorcontainer}>
+          <TextEditor />
+        </div>
+      </div>
+    </div>
   );
 };
 

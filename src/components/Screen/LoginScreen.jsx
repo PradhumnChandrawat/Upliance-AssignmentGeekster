@@ -3,6 +3,8 @@ import styles from "./LoginScreen.module.css";
 import LoginButton from "../Buttons/LoginButton";
 
 const LoginScreen = () => {
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
     <div className={styles.loginScreen}>
       <h1>Welcome to Upliance.AI</h1>
