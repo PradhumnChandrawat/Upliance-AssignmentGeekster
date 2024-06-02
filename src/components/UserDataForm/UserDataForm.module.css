@@ -1,0 +1,123 @@
+:root {
+  --primary-color: #6200ea;
+  --hover-color: #46be7c;
+  --input-border-radius: 4px;
+  --button-font-size: 14px; /* Reduced font size for compact design */
+  --transition-speed: 0.3s;
+  --form-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --form-padding: 10px; /* Reduced padding */
+  --form-background: white;
+  --form-width: 300px; /* Reduced width to fit smaller areas */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--form-shadow);
+  border-radius: var(--input-border-radius);
+  background: var(--form-background);
+  width: var(--form-width);
+  transition: box-shadow var(--transition-speed);
+}
+
+.form:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.heading {
+  text-align: center;
+  padding: 10px 0; /* Reduced padding around heading */
+}
+
+.inputWrapper {
+  position: relative;
+  font-size: 14px; /* Reduced font size for inputs */
+  margin-bottom: 20px; /* Reduced margin for tighter layout */
+  width: 100%;
+}
+
+.inputWrapper input {
+  all: unset;
+  width: 100%;
+  padding: 8px;
+  border-bottom: 2px solid #dedede;
+  transition: border-color var(--transition-speed);
+}
+
+.inputWrapper input:focus {
+  border-bottom-color: var(--hover-color);
+}
+
+.inputWrapper label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  color: #999999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.inputWrapper > input:focus + label,
+.inputWrapper > input:valid + label {
+  bottom: 100%;
+  font-size: 14px;
+  color: #666666;
+}
+
+.inputWrapper .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #2196f3;
+  transform: scale(0);
+  transition: transform 0.3s;
+}
+
+.inputWrapper > input:focus ~ .underline {
+  transform: scale(1.1);
+}
+
+.button {
+  width: 100%;
+  padding: 8px 15px;
+  font-size: var(--button-font-size);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform 0.2s;
+}
+
+.button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+@media (min-width: 768px) {
+  .form {
+    width: 350px;
+    padding: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form {
+    width: 350px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .form {
+    width: 100%;
+    padding: 10px;
+  }
+}

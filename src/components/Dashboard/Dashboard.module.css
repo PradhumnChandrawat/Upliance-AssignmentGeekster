@@ -1,0 +1,58 @@
+.dashboardcontainer {
+  padding-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40rem;
+  width: 90vw;
+}
+
+.upperDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.leftpanel,
+.rightpanel {
+  flex: 1;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form,
+.counter {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+.editorcontainer {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+
+@media (max-width: 768px) {
+  .upperDiv,
+  .lowerDiv {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leftpanel,
+  .rightpanel,
+  .editorcontainer {
+    width: 100%;
+  }
+}

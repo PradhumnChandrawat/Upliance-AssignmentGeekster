@@ -1,0 +1,108 @@
+:root {
+  --primary-color: #6200ea;
+  --hover-color: #3700b3;
+  --border-radius: 4px;
+  --font-size-button: 16px;
+  --transition-speed: 0.3s;
+  --container-border: 5px solid black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2%;
+  gap: 2%;
+  margin-top: 5rem;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow var(--transition-speed), transform 0.2s ease;
+}
+
+.container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.counterArea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btncontainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.countertext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 80%;
+  height: 100px;
+}
+
+.button {
+  padding: 8px 16px;
+  font-size: calc(0.8em + 0.5vmin);
+  cursor: pointer;
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed);
+}
+
+.button:hover {
+  background-color: var(--hover-color);
+}
+
+.counterValue {
+  font-size: calc(2rem + 1vmin);
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.chartArea {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  margin: auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .chartArea {
+    height: 45vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .container,
+  .btncontainer,
+  .counterArea,
+  .countertext {
+    width: 100%;
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .button {
+    font-size: calc(1em + 1vmin);
+  }
+
+  .counterValue {
+    font-size: calc(1.5rem + 1vmin);
+  }
+}
